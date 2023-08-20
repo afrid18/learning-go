@@ -19,7 +19,11 @@ func NewTemplates(a *config.AppConfig) {
 
 func AddDefaultTemplateData(td *models.TemplateData) *models.TemplateData {
 	// td.StringMap["title"] = "My Basic WebApp"
-	td.StringMap = map[string]string{"title": "My Basic WebApp"}
+	if td.StringMap != nil {
+		td.StringMap["title"] = "My Basic Web App"
+	} else {
+		td.StringMap = map[string]string{"title": "My Basic WebApp"}
+	}
 	return td
 }
 
