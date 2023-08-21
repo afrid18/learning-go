@@ -22,5 +22,10 @@ func NoSurf(next http.Handler) http.Handler {
 		Secure:   false,
 		SameSite: http.SameSiteLaxMode,
 	})
+
 	return CSRFHandler
+}
+
+func SessionLoad(next http.Handler) http.Handler {
+	return session.LoadAndSave(next)
 }
